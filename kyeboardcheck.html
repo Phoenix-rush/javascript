@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard Check</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background-color: #fafafa;
+      text-align: center;
+    }
+
+    .key {
+      display: inline-block;
+      padding: 20px 40px;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 300px;
+    }
+
+    td, th {
+      border: 1px solid #333;
+      padding: 8px;
+    }
+
+    th {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="insert">
+    <div class="key">Press any key</div>
+  </div>
+
+  <script>
+    const insert = document.querySelector('#insert')
+
+    document.addEventListener('keydown', (e) => {
+        insert.innerHTML = `
+                <div class='color'>
+            <table>
+            <tr>
+            <th>key</th>
+            <th>keycode</th> 
+            <th>code</th>
+            </tr>
+            <tr>
+            <td>${e.key === ' ' ? 'space' : e.key}</td>
+            <td>${e.keyCode}</td> 
+            <td>${e.code}</td>
+            </tr>
+            
+        </table>
+            </div>
+        `
+    })
+  </script>
+</body>
+</html>
